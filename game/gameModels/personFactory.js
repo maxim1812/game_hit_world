@@ -8,8 +8,7 @@ let personFactory;
 	personFactory = new Object();
 	
 	// метод: вернуть экземпляр героя
-	personFactory.getHero = function(x,y,size)
-	{
+	personFactory.getHero = function(x,y,size) {
 		let hero = new Object();
 		hero.x = x;
 		hero.y = y;
@@ -18,8 +17,7 @@ let personFactory;
 	}
 	
 	// метод: вернуть экземпляр врага
-	personFactory.getEnemy = function(x,y,speedX,speedY,size)
-	{
+	personFactory.getEnemy = function(x,y,speedX,speedY,size) {
 		let enemy = new Object();
 		enemy.x = x;
 		enemy.y = y;

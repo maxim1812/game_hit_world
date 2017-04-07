@@ -1,10 +1,8 @@
 // создание экземпляра врага
-function createEnemy()
-{
+function createEnemy() {
 	let x = 620;
 	let randForX = parseInt(Math.random() * 2);
-	if(randForX == 0)
-	{
+	if(randForX == 0) {
 		x = -140;
 	}
 	
@@ -13,13 +11,11 @@ function createEnemy()
 	let speedX = parseInt(Math.random() * 10) + 2;
 	let speedY = parseInt(Math.random() * 10) + 2;
 	
-	if(x > 300) 
-	{
+	if(x > 300) {
 		speedX *= (-1);
 	}
 	
-	if(y > 300)
-	{
+	if(y > 300) {
 		speedY *= (-1);
 	}
 	
@@ -29,8 +25,7 @@ function createEnemy()
 }
 
 // создание экземпляра главного героя
-function createNewHero()
-{
+function createNewHero() {
 	let hero = personFactory.getHero(280,280,40);
 	personDecorator.addHeroMethods(hero);
 	return hero;

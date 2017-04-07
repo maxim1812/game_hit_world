@@ -1,8 +1,6 @@
 // запуск игры
-function startGame()
-{
-	if(gameIsStarted == false)
-	{
+function startGame() {
+	if(gameIsStarted == false) {
 		score = 0;
 		hero = createNewHero();
 		interval_1 = setInterval(createEnemy,300);
@@ -14,18 +12,15 @@ function startGame()
 }
 
 // остановка игры
-function stopGame()
-{
-	if(gameIsStarted == true)
-	{
+function stopGame() {
+	if(gameIsStarted == true) {
 		clearInterval(interval_1);
 		clearInterval(interval_2);
 		document.getElementById('startGameBtn').hidden = false;
 		document.getElementById('stopGameBtn').hidden = true;
 		gameIsStarted = false;
 		
-		while(enemyArray.length > 0)
-		{
+		while(enemyArray.length > 0) {
 			enemyArray.splice(0,1);
 		}
 		
