@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Hit World</title>
+	
+	<style>
+		body
+		{
+			background-color: #318fa0;
+			font-family: Geneva, Arial, Helvetica, sans-serif;
+			font-size: 18px;
+		}
+		
+		#topBox
+		{
+			position:absolute;
+			left: 0px;
+			top: 0px;
+			background-color: #000080;
+			width: 100%;
+			height: 50px;
+			color: white;
+		}
+		
+		#canvasBox
+		{
+			position:absolute;
+			left: 0px;
+			top: 70px;
+			padding-left:50px;
+			padding-right:50px;
+		}
+
+		#descriptionGameBox
+		{
+			position:absolute;
+			left: 50px;
+			top: 70px;
+			width: 600px;
+			padding: 10px 30px 30px 30px;
+			color: white;
+			background-color: #000080;
+		}
+		
+		#gameResultBox
+		{
+			position:absolute;
+			left: 50px;
+			top: 70px;
+			width: 600px;
+			padding: 10px 30px 30px 30px;
+			color: white;
+			background-color: #000080;
+		}
+	</style>
+</head>
+<body>
+
+<div id = "topBox">
+	<p>
+		&nbsp  &nbsp  &nbsp &nbsp  &nbsp  &nbsp 
+		<b style = "cursor:pointer" onclick = "renderBoxes.showDescription();">Описание игры</b> &nbsp  &nbsp  &nbsp | &nbsp  &nbsp  &nbsp 
+		<b style = "cursor:pointer">Мои результаты</b> &nbsp  &nbsp  &nbsp | &nbsp  &nbsp  &nbsp 
+		<b style = "cursor:pointer">Топ игроков</b> &nbsp  &nbsp  &nbsp | &nbsp  &nbsp  &nbsp 
+		<b style = "cursor:pointer" onclick = "startGame()">Начать игру</b> &nbsp  &nbsp  &nbsp | &nbsp  &nbsp  &nbsp 
+		<b style = "cursor:pointer">Выход</b> 
+		&nbsp  &nbsp  &nbsp &nbsp  &nbsp  &nbsp 
+	</p>
+</div>
+
+<div id = "canvasBox">
+	<canvas width = '600' height = '600' id='canvas' style = 'cursor:move'></canvas>
+	<p style = "color: white; background-color: #000080; padding: 7px 7px 7px 7px" id = 'pointsField'>Score: 0</p>
+</div>
+
+<div id = "descriptionGameBox">
+	<h2>Описание игры</h2>
+	<hr>
+	<p>
+		<h3>Вы играете за зелёный квадратик.</h3>
+		<h3>Ваша задача в игре: как можно дольше избегать столкновения с белыми квадратиками.</h3>
+		<h3>При столкновении с белым квадратиком игра заканчивается.</h3>
+		<h3>Управление движением зелёного квадратика осуществляется с помощью мышки.</h3>
+	</p>
+</div>
+
+<div id = "gameResultBox">
+	<h2>Результат игры</h2>
+	<hr>
+	<p>
+		<h2 id = 'gameResultStr'></h2>
+	</p>
+</div>
+
+<script>
+
+let renderBoxes;
+
+(function () {	
+
+	renderBoxes = new Object();
+	
+	renderBoxes.hideAll = function()
+	{
+		document.getElementById('canvasBox').hidden = true;
+		document.getElementById('descriptionGameBox').hidden = true;
+		document.getElementById('gameResultBox').hidden = true;		
+	}
+	
+	renderBoxes.showGame = function()
+	{
+		this.hideAll();
+		document.getElementById('canvasBox').hidden = false;
+	}
+	
+	renderBoxes.showDescription = function()
+	{
+		this.hideAll();
+		document.getElementById('descriptionGameBox').hidden = false;	
+	}
+	
+	renderBoxes.showGameResult = function()
+	{
+		this.hideAll();
+		document.getElementById('gameResultBox').hidden = false;	
+		document.getElementById('gameResultStr').innerHTML = "Score: " + score;
+	}
+
+})();
+
+renderBoxes.showDescription();
+
+</script>
+
+
+<script src = "gameFiles/globalVariables/globalVars.js"></script>
+<script src = "gameFiles/gameModels/holstClass.js"></script>
+<script src = "gameFiles/gameModels/personFactory.js"></script>
+<script src = "gameFiles/gameModels/personDecorator.js"></script>
+<script src = "gameFiles/gameModels/positionHitClass.js"></script>
+<script src = "gameFiles/gameFunctions/creatingHeroAndEnemies.js"></script>
+<script src = "gameFiles/gameFunctions/renderEnemiesAndHero.js"></script>
+<script src = "gameFiles/gameFunctions/startAndStopGame.js"></script>
+<script src = "gameFiles/gameFunctions/movingOfHeroAndEnemies.js"></script>
+
+</body>
+</html>
