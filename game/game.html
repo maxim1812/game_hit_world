@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Game</title>
+</head>
+<body>
+
+<canvas width = '600' height = '600' id='canvas' style = 'cursor:move'></canvas>
+
+<br>
+<br>
+
+<input type = 'button' id = 'startGameBtn' value = 'Начать игру' onclick = 'startGame()'>
+<input type = 'button' hidden = 'true' id = 'stopGameBtn' value = 'Завершить игру' onclick = 'stopGame()'>
+<br>
+<p id = 'pointsField'>Score: 0</p>
+
+<script src = "globalVariables/globalVars.js"></script>
+<script src = "gameModels/holstClass.js"></script>
+<script src = "gameModels/personFactory.js"></script>
+<script src = "gameModels/personDecorator.js"></script>
+<script src = "gameModels/positionHitClass.js"></script>
+<script src = "gameFunctions/creatingHeroAndEnemies.js"></script>
+<script src = "gameFunctions/renderEnemiesAndHero.js"></script>
+<script src = "gameFunctions/startAndStopGame.js"></script>
+<script src = "gameFunctions/movingOfHeroAndEnemies.js"></script>
+
+</body>
+</html>
